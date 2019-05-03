@@ -1,0 +1,9 @@
+<nav class="nav-bar">
+  <mat-menu #appMenu="matMenu">
+    <a *ngFor="let menu of menus | async" mat-menu-item [routerLink]="[menu.endereco]" routerLinkActive="active">{{ menu.descricao }}</a>
+  </mat-menu>
+
+  <button mat-icon-button mat-raised-button [matMenuTriggerFor]="appMenu">
+    <mat-icon>more_vert</mat-icon>
+  </button>
+</nav>

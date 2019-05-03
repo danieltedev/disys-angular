@@ -1,0 +1,25 @@
+/* You can add global styles to this file, and also import other style files */
+@import '@angular/material/prebuilt-themes/deeppurple-amber.css';
+
+.root {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+main {
+  flex: 1 0 auto;
+}
+
+body {
+  margin: 0px;
+}
+
+.nav-bar {
+  padding: 10px 20px;
+  box-shadow: -1px -4px 20px 0px #888888;
+}
+
+.right {
+  float: right !important;
+}

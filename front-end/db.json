@@ -1,0 +1,12 @@
+{
+  "menu": [
+    {
+      "descricao": "Dashboard",
+      "endereco": "/"
+    },
+    {
+      "descricao": "Cadastro de Mensagem",
+      "endereco": "/cadastro-mensagem"
+    }
+  ]
+}
