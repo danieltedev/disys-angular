@@ -5,7 +5,8 @@
 export const environment = {
   production: false,
   API_MENUS: 'http://localhost:3000/menu',
-  API_MENSAGEM: 'http://localhost:3000/mensagem'
+  API_MENSAGEM: 'http://localhost:3000/mensagem',
+  API_ASSUNTO: 'http://localhost:3000/assunto'
 };
 
 /*

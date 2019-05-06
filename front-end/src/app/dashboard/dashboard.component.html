@@ -1,3 +1,27 @@
-<p>
-  dashboard works!
-</p>
+<div class="container" fxLayout="row" fxLayout.xs="column" fxLayoutWrap fxLayoutGap="0.5%" fxLayoutAlign="center">
+  <div fxFlex="20%">
+    <div class="container" fxLayout="column" fxLayoutWrap fxLayoutGap="0.5%" fxLayoutAlign="center">
+        <a *ngFor="let mensagem of mensagens | async" [routerLink]="['/dashboard', mensagem.id]">
+          <div fxFlex="100%">
+            <mat-card [ngStyle]="{ 'margin': '10px 15px', 'text-align': 'center'}">
+              <mat-card-title>{{ mensagem.assunto }}</mat-card-title>
+              <mat-card-subtitle>{{ mensagem.dataHoraCadastro | date: 'dd/MM/yyyy HH:mm:ss' }}</mat-card-subtitle>
+            </mat-card>
+          </div>
+        </a>
+    </div>
+  </div>
+  <div fxFlex="100%">
+    <div *ngIf="(dataRoute | async)?.mensagem as mensagem">
+      <mat-card [style.margin]="'10px 15px 10px 15px'">
+        <mat-card-title>{{ mensagem.assunto }}</mat-card-title>
+        <mat-card-subtitle>{{ mensagem.email }}</mat-card-subtitle>
+        <mat-card-subtitle>{{ mensagem.dataHoraCadastro | date: 'dd/MM/yyyy HH:mm:ss' }}</mat-card-subtitle>
+        <mat-card-content>{{ mensagem.mensagemTxt }}</mat-card-content>
+      </mat-card>
+      <div dir="rtl" [style.margin]="'0px 15px'">
+        <a mat-raised-button (click)="excluir(mensagem.id)">Excluir</a>
+      </div>
+    </div>
+  </div>
+</div>

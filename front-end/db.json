@@ -1,12 +1,39 @@
 {
   "menu": [
     {
+      "id": 1,
       "descricao": "Dashboard",
       "endereco": "/"
     },
     {
+      "id": 2,
       "descricao": "Cadastro de Mensagem",
       "endereco": "/cadastro-mensagem"
+    }
+  ],
+  "mensagem": [
+    {
+      "id": 1,
+      "nome": "teste",
+      "email": "teste@teste.com",
+      "assunto": "teste",
+      "telefone": "1198765432",
+      "mensagemTxt": "mensagem teste enviada para o usuário de teste",
+      "dataHoraCadastro": "05/05/2019 14:16:43"
+    }
+  ],
+  "assunto": [
+    {
+      "descricao": "Orçamento"
+    },
+    {
+      "descricao": "Dúvida"
+    },
+    {
+      "descricao": "Elogio"
+    },
+    {
+      "descricao": "Reclamação"
     }
   ]
 }

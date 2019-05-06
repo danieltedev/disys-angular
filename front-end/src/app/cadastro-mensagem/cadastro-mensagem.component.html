@@ -1,3 +1,41 @@
-<p>
-  cadastro-mensagem works!
-</p>
+<div class="container" fxLayout="row" fxLayout.xs="column" fxLayoutWrap fxLayoutGap="0.5%" fxLayoutAlign="center">
+  <div fxFlex="60%">
+    <mat-card [style.margin]="'10px 15px 10px 15px'">
+      <form [formGroup]="formMensagem" (ngSubmit)="enviar()" >
+        <mat-form-field [ngStyle]="{'width': '100%', 'margin-top': '20px'}">
+          <input matInput placeholder="Nome" formControlName="nome">
+          <mat-hint>Caracteres aceitos são de A-Z</mat-hint>
+          <mat-error *ngIf="nome.hasError('required')">{{ getMensagemErro(nome) }}</mat-error>
+          <mat-error *ngIf="nome.hasError('pattern')">{{ getMensagemErro(nome) }}</mat-error>
+        </mat-form-field>
+        <mat-form-field [ngStyle]="{'width': '100%', 'margin-top': '20px'}">
+          <input matInput placeholder="E-mail" formControlName="email">
+          <mat-error *ngIf="email.hasError('required')">{{ getMensagemErro(email) }}</mat-error>
+          <mat-error *ngIf="email.hasError('email')">{{ getMensagemErro(email) }}</mat-error>
+        </mat-form-field>
+        <mat-form-field [ngStyle]="{'width': '100%', 'margin-top': '20px'}">
+          <input matInput placeholder="Telefone" formControlName="telefone" maskTelefone maxlength="15">
+          <mat-hint>Caracteres aceitos são de 0-9</mat-hint>
+          <mat-error *ngIf="telefone.hasError('required')">{{ getMensagemErro(telefone) }}</mat-error>
+          <mat-error *ngIf="telefone.hasError('pattern')">{{ getMensagemErro(telefone) }}</mat-error>
+        </mat-form-field>
+        <mat-form-field [ngStyle]="{'width': '100%', 'margin-top': '20px'}">
+          <mat-select placeholder="Assunto" formControlName="assunto">
+            <mat-option value="{{ optAssunto.descricao }}" *ngFor="let optAssunto of assuntos | async">{{ optAssunto.descricao }}</mat-option>
+          </mat-select>
+          <mat-error *ngIf="assunto.hasError('required')">{{ getMensagemErro(assunto) }}</mat-error>
+        </mat-form-field>
+        <mat-form-field [ngStyle]="{'width': '100%', 'margin-top': '20px'}">
+          <textarea matInput #input placeholder="Mensagem" formControlName="mensagemTxt"></textarea>
+          <mat-hint align="end">{{ input.value?.length }}/500 caracteres</mat-hint>
+          <mat-error *ngIf="mensagemTxt.hasError('maxlength')">{{ getMensagemErro(mensagemTxt) }}</mat-error>
+          <mat-error *ngIf="mensagemTxt.hasError('minlength')">{{ getMensagemErro(mensagemTxt) }}</mat-error>
+          <mat-error *ngIf="mensagemTxt.hasError('required')">{{ getMensagemErro(mensagemTxt) }}</mat-error>
+        </mat-form-field>
+        <div dir="rtl" [style.margin-top]="'30px'">
+          <button mat-raised-button color="primary">Enviar</button>
+        </div>
+      </form>
+    </mat-card>
+  </div>
+</div>
